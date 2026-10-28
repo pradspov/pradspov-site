@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pradnya Bhandare</title>
+<meta name="description" content="Pradnya Bhandare, Campaign Marketing Manager. This page is a campaign, and you're the audience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the portfolio is a campaign brief. Each chapter is one field of the brief, one screen tall, stacking over the last. Bodoni speaks, mono fills in the form. */
+:root{
+  --bg:#EDEFF1; --surface:#F8F8F7; --ink:#16171C; --muted:#5B5F69; --line:#CDD1D7;
+  --accent:#7B1E2C; --accent-soft:#E9D9DB; --brass:#9A7438; --on-accent:#FBF5F5; --shade:#16171C;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --wrap:1180px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111216; --surface:#1A1B21; --ink:#ECEAE6; --muted:#A3A6AF; --line:#2E3038;
+  --accent:#E0798A; --accent-soft:#3A2228; --brass:#CFA968; --on-accent:#1A0E11; --shade:#000; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111216; --surface:#1A1B21; --ink:#ECEAE6; --muted:#A3A6AF; --line:#2E3038;
+  --accent:#E0798A; --accent-soft:#3A2228; --brass:#CFA968; --on-accent:#1A0E11; --shade:#000; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin-inline:auto;width:100%;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.04;text-wrap:balance;margin:0}
+h2{font-size:clamp(2.4rem,6vw,4.6rem);letter-spacing:-.015em}
+em{font-style:italic;color:var(--accent);font-weight:400}
+p{margin:0}
+.tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.field{display:flex;gap:14px;align-items:baseline;margin-bottom:22px}
+.field .tag:first-child{color:var(--brass)}
+.field::after{content:"";flex:1;border-bottom:1px dashed var(--line);transform:translateY(-4px)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:600;font-size:.95rem;border:1px solid var(--accent);cursor:pointer;white-space:nowrap;transition:transform .25s cubic-bezier(.2,.7,.1,1)}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:transform .45s cubic-bezier(.2,.7,.1,1)}
+.nav.tuck{transform:translateY(calc(-100% - 4px))}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:13px}
+.brand{font-family:var(--display);font-size:1.22rem;text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:.94rem}
+.nav-links a:not(.btn){text-decoration:none;color:var(--muted);position:relative}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.nav-links a.active{color:var(--ink)}
+.nav-links a.active::after,.nav-links a:not(.btn):hover::after{transform:scaleX(1)}
+.nav .btn{padding:8px 16px;font-size:.88rem}
+.theme-btn{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--line);border-radius:999px;padding:7px 12px;cursor:pointer}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none}
+.progress span{display:block;height:100%;background:var(--accent);transform-origin:left;transform:scaleX(var(--sp,0))}
+@media (max-width:820px){.nav-links a:not(.btn){display:none}}
+@media (max-width:420px){.brand{font-size:1.05rem}.nav-links{gap:8px}.nav .btn{padding:7px 12px}}
+
+/* Chapters */
+.anchor{height:0;scroll-margin-top:30px}
+.chapter{position:sticky;top:0;min-height:100vh;min-height:100svh;display:grid;align-content:center;background:var(--bg);overflow:clip;transform-origin:50% calc(100% - 50vh);padding-block:clamp(96px,12vh,140px) clamp(72px,10vh,120px)}
+.chapter.alt{background:var(--surface)}
+.chapter.dark{background:var(--ink);color:var(--bg)}
+.chapter.dark .tag{color:color-mix(in srgb,var(--bg) 62%,var(--ink))}
+.chapter.dark .field .tag:first-child{color:var(--brass)}
+.chapter.dark em{color:color-mix(in srgb,var(--accent) 55%,var(--bg))}
+.chapter.dark .field::after{border-color:color-mix(in srgb,var(--bg) 25%,var(--ink))}
+.chapter + .anchor + .chapter{border-radius:30px 30px 0 0;margin-top:-30px;box-shadow:0 -26px 50px -30px rgba(0,0,0,.45)}
+.chapter::after{content:"";position:absolute;inset:0;background:var(--shade);opacity:calc(var(--c,0) * .4);pointer-events:none;border-radius:inherit;z-index:5}
+
+/* 00 Cover */
+.cover{padding-top:clamp(40px,7vh,80px)}
+.cover-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(32px,5vw,72px);align-items:center}
+.brief-head{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line);margin-bottom:clamp(20px,3vh,32px)}
+.brief-head div{padding:12px 14px 12px 0;display:grid;gap:2px}
+.brief-head div+div{padding-left:14px;border-left:1px solid var(--line)}
+.brief-head b{font-weight:600;font-size:.95rem}
+.live{display:inline-flex;align-items:center;gap:7px}
+.live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}100%{box-shadow:0 0 0 10px transparent}}
+.cover h1{font-size:clamp(3.4rem,8vw,6.6rem);letter-spacing:-.03em}
+.cover h1 .w{display:inline-block}
+.cover .lede{font-size:clamp(1.15rem,1.8vw,1.45rem);line-height:1.45;max-width:30ch;margin-top:18px}
+.cover .lede b{font-weight:600}
+.cue{margin-top:28px;display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.cue i{display:block;width:1px;height:40px;background:var(--line);position:relative;overflow:hidden}
+.cue i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--accent);animation:drip 1.8s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes drip{to{top:100%}}
+.photo{position:relative;margin:0;max-width:340px;width:100%;justify-self:end}
+.photo img{display:block;width:100%;aspect-ratio:683/1024;object-fit:cover;border-radius:210px 210px 6px 6px}
+.photo-tag{position:absolute;left:-30px;bottom:48px;background:var(--surface);border:1px solid var(--line);padding:12px 16px;border-radius:4px;box-shadow:0 12px 30px -16px rgba(0,0,0,.35);transform:rotate(-4deg);transition:transform .6s cubic-bezier(.2,.7,.1,1);max-width:230px}
+.photo:hover .photo-tag{transform:rotate(2deg) translateY(-6px)}
+.photo-tag b{display:block;font-family:var(--display);font-weight:500;font-size:1.1rem;line-height:1.2;margin-top:2px}
+@media (max-width:860px){.cover-grid{grid-template-columns:1fr}.photo{justify-self:start;max-width:330px}.photo-tag{left:auto;right:-6px}.brief-head{grid-template-columns:1fr 1fr}.brief-head div:nth-child(3){grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid var(--line)}}
+
+/* 01 Objective: words light up as it rises */
+.statement{font-family:var(--display);font-weight:500;font-size:clamp(2.4rem,6.4vw,5.6rem);line-height:1.06;letter-spacing:-.02em;max-width:16ch;text-wrap:balance}
+.statement .wd{transition:opacity .35s ease}
+.statement .wd.dim{opacity:.16}
+.kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.kpis span{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;padding:7px 14px;border:1px solid var(--line);border-radius:999px}
+.kpis span:last-child{border-color:var(--accent);color:var(--accent)}
+
+/* 02 Audience: pick a segment */
+.seg{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.seg button{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:1rem;transition:background .25s,color .25s,border-color .25s}
+.seg button:hover{border-color:var(--accent)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.message{margin-top:30px;max-width:40ch;min-height:6.5em;font-size:clamp(1.25rem,2.2vw,1.7rem);line-height:1.4}
+.message .tag{display:block;margin-bottom:10px}
+.message p{transition:opacity .3s,transform .3s}
+.message p.swap{opacity:0;transform:translateY(10px)}
+
+/* 03 Product: spec sheet */
+.product{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,80px);align-items:start}
+.product .intro p{color:var(--muted);margin-top:20px;max-width:38ch;font-size:1.08rem}
+.specs{margin:0;display:grid;border-top:1px solid var(--ink)}
+.specs div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding-block:16px;border-bottom:1px solid var(--line);align-items:baseline}
+.specs dt{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.specs dd{margin:0;font-size:1.05rem}
+.specs dd small{display:block;color:var(--muted);font-size:.88rem}
+@media (max-width:860px){.product{grid-template-columns:1fr}}
+@media (max-width:480px){.specs div{grid-template-columns:1fr;gap:2px}}
+
+/* 04 Proof: flip cards */
+.flips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:44px}
+.flip{display:block;width:100%;text-align:left;background:none;border:0;padding:0;cursor:pointer;perspective:1300px}
+.flip-in{display:grid;transition:transform .9s cubic-bezier(.3,.7,.1,1);transform-style:preserve-3d}
+.flip:hover .flip-in{transform:rotateY(-6deg)}
+.flip.on .flip-in,.flip.on:hover .flip-in{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;min-height:320px;padding:26px;border-radius:6px;display:grid;align-content:space-between;gap:24px}
+.front{background:color-mix(in srgb,var(--bg) 8%,var(--ink));border:1px solid color-mix(in srgb,var(--bg) 18%,var(--ink))}
+.back{background:var(--accent);color:var(--on-accent);transform:rotateY(180deg)}
+.face .num{font-family:var(--display);font-size:clamp(3rem,5.4vw,4.6rem);font-weight:500;line-height:1;letter-spacing:-.02em;display:flex;align-items:flex-end;font-variant-numeric:lining-nums tabular-nums}
+.face .q{font-size:1.1rem;line-height:1.4;max-width:24ch}
+.face .hint{display:flex;justify-content:space-between;align-items:center}
+.face .hint i{font-style:normal;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;transition:transform .4s}
+.flip:hover .front .hint i{transform:rotate(90deg)}
+.back p{font-size:1.12rem;line-height:1.45}
+.chapter.dark .back .tag{color:color-mix(in srgb,var(--on-accent) 75%,var(--accent))}
+.odo{display:inline-block;height:1em;overflow:hidden;vertical-align:bottom}
+.odo span{display:block;transition:transform 1.4s cubic-bezier(.2,.7,.1,1)}
+.odo span i{display:block;height:1em;font-style:normal;line-height:1}
+.foot{margin-top:22px}
+@media (max-width:900px){.flips{grid-template-columns:1fr}.face{min-height:230px}}
+
+/* 05 The file: redactions */
+.file{margin-top:40px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:clamp(22px,4vw,44px);position:relative;max-width:900px}
+.file::before{content:"Confidential · for interview";position:absolute;top:22px;right:-30px;transform:rotate(12deg);font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);padding:4px 10px;border-radius:3px;background:var(--surface)}
+.file ol{list-style:none;margin:0;padding:0;display:grid;counter-reset:line}
+.file li{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;padding-block:14px;border-bottom:1px dashed var(--line);font-size:clamp(1.05rem,1.7vw,1.25rem);line-height:1.6}
+.file li:last-child{border-bottom:0}
+.file li::before{counter-increment:line;content:counter(line,decimal-leading-zero);font-family:var(--mono);font-size:.74rem;color:var(--muted);padding-top:6px}
+.red{position:relative;display:inline;background:none;border:0;padding:0 3px;margin:0 1px;cursor:pointer;font-weight:600;color:transparent;border-radius:2px}
+.red::after{content:"";position:absolute;inset:2px -1px;background:var(--ink);border-radius:2px;transform-origin:right center;transition:transform .6s cubic-bezier(.7,0,.2,1),background .2s}
+.red:hover::after{background:color-mix(in srgb,var(--ink) 80%,var(--accent))}
+.red.open{color:var(--accent);cursor:default}
+.red.open::after{transform:scaleX(0)}
+.ask{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-left:6px}
+.file-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px;max-width:900px}
+.meter{display:flex;align-items:center;gap:12px}
+.meter b{display:block;width:140px;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.meter b span{display:block;height:100%;width:0;background:var(--accent);transition:width .5s}
+.done-msg{font-family:var(--display);font-size:1.3rem}
+@media (max-width:560px){.file::before{right:-10px;top:-14px}}
+
+/* 06 After hours */
+.after{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,6vw,80px);align-items:center}
+.after .frame{overflow:hidden;border-radius:6px 6px 200px 6px;max-width:460px}
+.after img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;will-change:transform}
+.after .copy{display:grid;gap:20px;max-width:50ch}
+.after .copy > p{font-size:1.12rem}
+.after .field{margin-bottom:0}
+.handles{display:flex;flex-wrap:wrap;gap:10px}
+.handle{display:inline-flex;gap:10px;align-items:center;padding:12px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:var(--bg);transition:border-color .2s,transform .35s cubic-bezier(.2,.7,.1,1)}
+.handle:hover{border-color:var(--accent);transform:translateY(-3px) rotate(-1deg)}
+.handle b{font-family:var(--mono);font-weight:500;color:var(--accent);overflow-wrap:anywhere}
+.handle span{font-size:.88rem;color:var(--muted)}
+@media (max-width:860px){.after{grid-template-columns:1fr}.after .frame{max-width:380px}}
+
+/* 07 Offer: the voucher */
+.voucher{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr) 260px;border-radius:10px;background:var(--surface);color:var(--ink);border:1px solid var(--line);position:relative;overflow:hidden;max-width:980px}
+.voucher .main{padding:clamp(24px,4vw,44px);display:grid;gap:18px;min-width:0}
+.voucher .stub{border-left:2px dashed var(--line);padding:clamp(24px,4vw,36px);display:grid;gap:12px;align-content:center;justify-items:center;text-align:center;background:var(--accent-soft);position:relative}
+.voucher .stub::before,.voucher .stub::after{content:"";position:absolute;left:-15px;width:28px;height:28px;border-radius:50%;background:var(--ink)}
+.voucher .stub::before{top:-14px}.voucher .stub::after{bottom:-14px}
+.voucher .stub img{width:92px;height:92px;border-radius:50%;object-fit:cover}
+.chapter.dark .voucher .tag{color:var(--muted)}
+.chapter.dark .voucher em{color:var(--accent)}
+.code{font-family:var(--mono);font-size:1.4rem;letter-spacing:.14em;color:var(--accent);font-weight:500}
+.voucher h3{font-size:clamp(1.8rem,3.4vw,2.8rem)}
+.reach{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.reach > *{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:6px;background:var(--bg);text-decoration:none;min-width:0}
+.addr{font-weight:600;user-select:all;overflow-wrap:anywhere}
+.copy-btn{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;flex:none;color:var(--ink)}
+.copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+.copy-btn.done{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.terms{font-size:.82rem;color:var(--muted)}
+@media (max-width:760px){.voucher{grid-template-columns:1fr}.voucher .stub{border-left:0;border-top:2px dashed var(--line)}.voucher .stub::before,.voucher .stub::after{display:none}.reach{grid-template-columns:1fr}}
+.site-foot{margin-top:56px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.88rem;color:color-mix(in srgb,var(--bg) 60%,var(--ink))}
+
+/* Chapter rail */
+.rail{position:fixed;right:max(18px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);z-index:35;display:grid;gap:14px;padding:12px 8px;border-radius:999px;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line)}
+.rail a{position:relative;display:block;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--muted);transition:background .3s,border-color .3s,transform .3s}
+.rail a.on{background:var(--accent);border-color:var(--accent);transform:scale(1.25)}
+.rail a span{position:absolute;right:22px;top:50%;transform:translate(6px,-50%);white-space:nowrap;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:4px 9px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.rail a:hover span,.rail a:focus-visible span,.rail a.flash span{opacity:1;transform:translate(0,-50%)}
+@media (max-width:900px){.rail{display:none}}
+
+/* Motion */
+@media (prefers-reduced-motion:no-preference){
+  .load{animation:rise .9s cubic-bezier(.2,.7,.1,1) backwards;animation-delay:calc(var(--d,0)*110ms + 120ms)}
+  .cover h1 .w{animation:wordUp 1s cubic-bezier(.2,.7,.1,1) backwards;animation-delay:calc(var(--d,0)*120ms + 200ms)}
+  .photo img{animation:unveil 1.3s cubic-bezier(.6,0,.1,1) .1s backwards}
+  .photo-tag{animation:swing 1.4s cubic-bezier(.2,.7,.1,1) 1s backwards}
+}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes wordUp{from{opacity:0;transform:translateY(55%) rotate(2deg)}to{opacity:1;transform:none}}
+@keyframes unveil{from{clip-path:inset(100% 0 0 0 round 210px 210px 6px 6px)}to{clip-path:inset(0 0 0 0 round 210px 210px 6px 6px)}}
+@keyframes swing{0%{opacity:0;transform:rotate(-24deg) translateY(-14px)}60%{opacity:1;transform:rotate(2deg)}100%{transform:rotate(-4deg)}}
+.pre{opacity:.12;transform:perspective(1100px) rotateX(-16deg) translateY(44px);transform-origin:50% 0}
+.rise{animation:unfold 1s cubic-bezier(.2,.7,.1,1) backwards;animation-delay:calc(var(--i,0)*110ms);transform-origin:50% 0}
+@keyframes unfold{from{opacity:.12;transform:perspective(1100px) rotateX(-16deg) translateY(44px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .chapter{transform:none!important}
+  .pre{opacity:1;transform:none}
+  .rise{animation:none}
+  .statement .wd.dim{opacity:1}
+  .flip-in,.red::after{transition:none}
+  .live::before,.cue i::after{animation:none}
+  .odo span{transition:none}
+}
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pradspov.com/">
+<meta property="og:title" content="Pradnya Bhandare · This page is a campaign">
+<meta property="og:description" content="Campaign Marketing Manager. You're the target audience. Let's see if it converts.">
+<meta property="og:image" content="https://pradspov.com/img/pradnya-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://pradspov.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237B1E2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='40' text-anchor='middle' fill='%23FBF5F5'%3EP%3C/text%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#brief">Pradnya <em>Bhandare</em></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#product">The product</a>
+      <a href="#proof">Proof</a>
+      <a href="#file">The file</a>
+      <button class="theme-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">Dark</button>
+      <a class="btn mag" href="#offer">Redeem offer</a>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+</header>
+
+<main>
+  <div class="anchor" id="brief"></div>
+  <section class="chapter cover" data-ch="The brief">
+    <div class="wrap">
+      <div class="brief-head load" style="--d:0">
+        <div><span class="tag">Campaign</span><b>Pradnya Bhandare</b></div>
+        <div><span class="tag">Audience</span><b>You</b></div>
+        <div><span class="tag">Status</span><b class="live">Live</b></div>
+      </div>
+      <div class="cover-grid">
+        <div>
+          <p class="tag load" style="--d:1">Campaign Marketing Manager · Copart UK</p>
+          <h1><span class="w" style="--d:2">Hi,</span> <span class="w" style="--d:3">I'm</span> <em class="w" style="--d:4">Pradnya.</em></h1>
+          <p class="lede load" style="--d:6">This page is a campaign. <b>You're the target audience.</b> Let's see if it converts.</p>
+          <a class="cue tag load" style="--d:8" href="#objective"><i></i>Scroll to read the brief</a>
+        </div>
+        <figure class="photo">
+          <img src="img/pradnya-portrait.jpg" alt="Pradnya Bhandare in a black blazer and burgundy cardigan on a glass walkway in the City of London" width="683" height="1024">
+          <figcaption class="photo-tag" aria-hidden="true"><span class="tag">Brief No. 001</span><b>Automobile engineer turned marketer</b></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="anchor" id="objective"></div>
+  <section class="chapter alt" data-ch="Objective">
+    <div class="wrap">
+      <div class="field"><span class="tag">01 · Objective</span></div>
+      <p class="statement" data-words>Get you to spend <em>twenty minutes</em> talking to me.</p>
+      <div class="kpis"><span>KPI · 1 conversation</span><span>Budget · £0</span><span>Channel · this page</span><span>Conversions so far · 0</span></div>
+    </div>
+  </section>
+
+  <div class="anchor" id="audience"></div>
+  <section class="chapter" data-ch="Audience">
+    <div class="wrap">
+      <div class="field"><span class="tag">02 · Audience</span></div>
+      <h2>Good campaigns start by <em>knowing who's reading.</em></h2>
+      <p class="tag" style="margin-top:30px">So, which one are you?</p>
+      <div class="seg" role="group" aria-label="Choose who you are">
+        <button type="button" data-seg="recruiter" aria-pressed="true">A recruiter</button>
+        <button type="button" data-seg="manager" aria-pressed="false">A hiring manager</button>
+        <button type="button" data-seg="curious" aria-pressed="false">Just curious</button>
+      </div>
+      <div class="message" aria-live="polite">
+        <span class="tag" id="seg-label">Message for recruiters</span>
+        <p id="seg-text">Campaign manager across B2B and B2C, strong on CRM. Three roles and two promotions at Copart UK in two and a half years. Based in Milton Keynes, working in London.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="anchor" id="product"></div>
+  <section class="chapter alt" data-ch="The product">
+    <div class="wrap">
+      <div class="field"><span class="tag">03 · The product</span></div>
+      <div class="product">
+        <div class="intro">
+          <h2>Built as an engineer. <em>Tuned for marketing.</em></h2>
+          <p>I studied how cars work before I learnt how to sell things. Now I market a vehicle marketplace, and every campaign goes through the same steps: brief, sign-off, assets, results.</p>
+        </div>
+        <dl class="specs">
+          <div><dt>Engine</dt><dd>BTech Automobile Engineering<small>Manipal University Jaipur, scholarship for the top 10%</small></dd></div>
+          <div><dt>Tuning</dt><dd>MSc Management, Cranfield<small>Plus CMI Level 7 in Strategic Management and Leadership</small></dd></div>
+          <div><dt>Currently</dt><dd>Campaign Marketing Manager, Copart UK<small>Insurance, Automotive and Cash for Cars</small></dd></div>
+          <div><dt>Service history</dt><dd>Unschool, Teralco, Shoobs, Copart<small>Mumbai, Valencia, London, Bedford</small></dd></div>
+          <div><dt>Mileage</dt><dd>Around 40 campaigns a year<small>Monthly ones included</small></dd></div>
+          <div><dt>Languages</dt><dd>English, Hindi, Marathi</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <div class="anchor" id="proof"></div>
+  <section class="chapter dark" data-ch="Proof">
+    <div class="wrap">
+      <div class="field"><span class="tag">04 · Proof points</span></div>
+      <h2>Three results. <em>Tap to see how.</em></h2>
+      <div class="flips">
+        <button class="flip" type="button" aria-expanded="false">
+          <span class="flip-in">
+            <span class="face front"><span class="num" data-odo="£4.23M">£4.23M</span><span class="q">What does a football tournament have to do with selling cars?</span><span class="hint tag">Flip it<i aria-hidden="true">+</i></span></span>
+            <span class="face back"><span class="tag">World Cup seller promo</span><p>A four-week seller promotion, and the idea was mine. A typical four weeks brings in £2.5M.</p><span class="tag">The full story is in the interview</span></span>
+          </span>
+        </button>
+        <button class="flip" type="button" aria-expanded="false">
+          <span class="flip-in">
+            <span class="face front"><span class="num" data-odo="150">150</span><span class="q">How much can a one-minute form do in two days?</span><span class="hint tag">Flip it<i aria-hidden="true">+</i></span></span>
+            <span class="face back"><span class="tag">Inside Sales lead route</span><p>150 seller leads in two days, after I cut the steps between the ad and the sales team's inbox.</p><span class="tag">Ask me what I cut</span></span>
+          </span>
+        </button>
+        <button class="flip" type="button" aria-expanded="false">
+          <span class="flip-in">
+            <span class="face front"><span class="num" data-odo="750">750</span><span class="q">Will people who left come back for 40% off?</span><span class="hint tag">Flip it<i aria-hidden="true">+</i></span></span>
+            <span class="face back"><span class="tag">Membership win-back</span><p>750 lapsed members did, on a programme I took on to cover a gap in the team.</p><span class="tag">Ask me what came next</span></span>
+          </span>
+        </button>
+      </div>
+      <p class="tag foot">Real numbers from campaigns I planned or ran at Copart UK</p>
+    </div>
+  </section>
+
+  <div class="anchor" id="file"></div>
+  <section class="chapter" data-ch="The file">
+    <div class="wrap">
+      <div class="field"><span class="tag">05 · Supporting evidence</span></div>
+      <h2>The rest of the file. <em>Partly redacted.</em></h2>
+      <p style="margin-top:18px;color:var(--muted);max-width:52ch">Tap a black bar to lift it. The facts are here. The stories behind them are saved for a conversation.</p>
+      <div class="file">
+        <ol>
+          <li><span>Sent a member survey to <button class="red" type="button" aria-label="Reveal number">426,037</button> people, and <button class="red" type="button" aria-label="Reveal number">5,052</button> wrote back. <span class="ask">Story on request</span></span></li>
+          <li><span>Grew the list of sellers happy to hear from us by <button class="red" type="button" aria-label="Reveal number">65%</button>. <span class="ask">Story on request</span></span></li>
+          <li><span>Closed <button class="red" type="button" aria-label="Reveal number">22</button> accounts from one partner email to IMI members. <span class="ask">Story on request</span></span></li>
+          <li><span>Wrote the phased three-year marketing plan for <button class="red" type="button" aria-label="Reveal detail">a new marketplace business</button>. <span class="ask">Story on request</span></span></li>
+          <li><span>Went from intern to <button class="red" type="button" aria-label="Reveal detail">Head of Marketing Campaigns</button> in under a year, in Mumbai. <span class="ask">Story on request</span></span></li>
+          <li><span>Built <button class="red" type="button" aria-label="Reveal detail">the campaign plan template</button> every campaign now follows to sign-off. <span class="ask">Story on request</span></span></li>
+        </ol>
+      </div>
+      <div class="file-foot">
+        <span class="meter tag"><b><span id="meter-fill"></span></b><span id="meter-text">0 of 7 lifted</span></span>
+        <span class="done-msg" id="done-msg" hidden>That's everything on paper. <em>The rest is a conversation.</em></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="anchor" id="after"></div>
+  <section class="chapter alt" data-ch="After hours">
+    <div class="wrap after">
+      <div class="frame"><img src="img/pradnya-city.jpg" alt="Pradnya Bhandare on a walkway in the City of London" width="900" height="900"></div>
+      <div class="copy">
+        <div class="field"><span class="tag">06 · After hours</span></div>
+        <h2>I'm also on the <em>other side</em> of the brief.</h2>
+        <p>I make content about dance, travel, fashion and building a life abroad in your 20s, and I've made content for brands. So when I brief a creator, I know what it feels like to receive one.</p>
+        <div class="handles">
+          <a class="handle" href="https://www.instagram.com/pradnyaaaaaa._/" target="_blank" rel="noopener"><b>@pradnyaaaaaa._</b><span>4K+ followers</span></a>
+          <a class="handle" href="https://www.instagram.com/prads_pov/" target="_blank" rel="noopener"><b>@prads_pov</b><span>Life abroad, in your 20s</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="anchor" id="offer"></div>
+  <section class="chapter dark" data-ch="The offer">
+    <div class="wrap">
+      <div class="field"><span class="tag">07 · Call to action</span></div>
+      <h2>Every campaign needs an offer. <em>Here's mine.</em></h2>
+      <div class="voucher">
+        <div class="main">
+          <span class="tag">Valid for one conversation</span>
+          <h3>Twenty minutes, and I'll tell you the stories behind the numbers.</h3>
+          <div class="reach">
+            <div><span class="addr" id="email">hello@pradspov.com</span><button class="copy-btn" id="copy-email" type="button">Copy</button></div>
+            <a href="https://www.linkedin.com/in/pradnya-bhandare01/" target="_blank" rel="noopener"><span class="addr">Message me on LinkedIn</span><span class="tag">↗</span></a>
+          </div>
+          <p class="terms">Terms: no expiry, no obligation, coffee optional. Redeem by email or LinkedIn and quote the code.</p>
+        </div>
+        <div class="stub">
+          <img src="img/pradnya-headshot.png" alt="Headshot of Pradnya Bhandare" width="240" height="240">
+          <span class="tag">Promo code</span>
+          <span class="code" id="code">PRADNYA20</span>
+          <button class="copy-btn" id="copy-code" type="button">Copy code</button>
+        </div>
+      </div>
+      <div class="site-foot">
+        <span>Planned, written and launched by Pradnya Bhandare, 2026.</span>
+        <span>Conversion rate: up to you.</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Theme */
+  var tbtn = document.getElementById('theme-toggle'), mq = window.matchMedia('(prefers-color-scheme: dark)');
+  try{ var saved = localStorage.getItem('pb-theme'); if(saved==='dark'||saved==='light') root.setAttribute('data-theme', saved); }catch(e){}
+  function theme(){ return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light'); }
+  function tlabel(){ tbtn.textContent = theme()==='dark' ? 'Light' : 'Dark'; }
+  tlabel();
+  tbtn.addEventListener('click', function(){ var n = theme()==='dark' ? 'light' : 'dark'; root.setAttribute('data-theme', n); try{ localStorage.setItem('pb-theme', n); }catch(e){} tlabel(); });
+  if(mq.addEventListener) mq.addEventListener('change', tlabel);
+
+  /* Copy buttons */
+  function copy(btn, text, sel, label){
+    function selectIt(){ var r=document.createRange(); r.selectNodeContents(sel); var s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent='Selected'; }
+    try{ navigator.clipboard.writeText(text).then(function(){ btn.textContent='Copied'; btn.classList.add('done'); setTimeout(function(){ btn.textContent=label; btn.classList.remove('done'); },1800); }, selectIt); }catch(e){ selectIt(); }
+  }
+  var em = document.getElementById('email'), code = document.getElementById('code');
+  document.getElementById('copy-email').addEventListener('click', function(){ copy(this, em.textContent.trim(), em, 'Copy'); });
+  document.getElementById('copy-code').addEventListener('click', function(){ copy(this, 'PRADNYA20', code, 'Copy code'); });
+
+  /* Audience segments */
+  var msgs = {
+    recruiter:['Message for recruiters','Campaign manager across B2B and B2C, strong on CRM. Three roles and two promotions at Copart UK in two and a half years. Based in Milton Keynes, working in London.'],
+    manager:['Message for hiring managers','Give me a commercial goal and I will own the campaign from business case to results report, then tell you plainly what worked and what did not.'],
+    curious:['Message for the curious','Engineer by degree, marketer by trade, creator by night. I dance, travel, and make content about building a life abroad in your 20s.']
+  };
+  var segBtns = document.querySelectorAll('.seg button'), segL = document.getElementById('seg-label'), segT = document.getElementById('seg-text');
+  segBtns.forEach(function(b){ b.addEventListener('click', function(){
+    segBtns.forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true' : 'false'); });
+    var m = msgs[b.dataset.seg];
+    if(reduce){ segL.textContent=m[0]; segT.textContent=m[1]; return; }
+    segT.classList.add('swap');
+    setTimeout(function(){ segL.textContent=m[0]; segT.textContent=m[1]; segT.classList.remove('swap'); }, 300);
+  }); });
+
+  /* Flip cards */
+  document.querySelectorAll('.flip').forEach(function(f){ f.addEventListener('click', function(){ var on = f.classList.toggle('on'); f.setAttribute('aria-expanded', on ? 'true' : 'false'); }); });
+
+  /* Redactions */
+  var reds = document.querySelectorAll('.red'), mf = document.getElementById('meter-fill'), mt = document.getElementById('meter-text'), dm = document.getElementById('done-msg');
+  function meter(){ var n = document.querySelectorAll('.red.open').length; mf.style.width = (n/reds.length*100)+'%'; mt.textContent = n+' of '+reds.length+' lifted'; dm.hidden = n < reds.length; }
+  reds.forEach(function(r){ r.addEventListener('click', function(){ if(r.classList.contains('open')) return; r.classList.add('open'); r.removeAttribute('aria-label'); meter(); }); });
+  meter();
+
+  /* Statement words light up as the chapter rises */
+  var statements = [];
+  document.querySelectorAll('[data-words]').forEach(function(el){
+    var words = [];
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(c){
+        if(c.nodeType===3){
+          var frag=document.createDocumentFragment();
+          c.textContent.split(/(\s+)/).forEach(function(t){ if(!t) return; if(/^\s+$/.test(t)){ frag.appendChild(document.createTextNode(t)); } else { var s=document.createElement('span'); s.className='wd'; s.textContent=t; frag.appendChild(s); words.push(s); } });
+          node.replaceChild(frag, c);
+        } else if(c.nodeType===1){ walk(c); }
+      });
+    })(el);
+    statements.push({el:el, words:words});
+  });
+
+  /* Odometer numbers: correct at rest, roll once on arrival */
+  var odos = document.querySelectorAll('[data-odo]');
+  odos.forEach(function(el){
+    var text = el.getAttribute('data-odo'); el.setAttribute('aria-label', text); el.textContent='';
+    text.split('').forEach(function(ch){
+      if(/[0-9]/.test(ch)){
+        var d=+ch, w=document.createElement('span'); w.className='odo'; w.setAttribute('aria-hidden','true');
+        var col=document.createElement('span'), h=''; for(var k=0;k<20;k++) h+='<i>'+(k%10)+'</i>';
+        col.innerHTML=h; col.dataset.d=d; col.style.transform='translateY(-'+(d+10)+'em)'; w.appendChild(col); el.appendChild(w);
+      } else { var s=document.createElement('span'); s.setAttribute('aria-hidden','true'); s.textContent=ch; el.appendChild(s); }
+    });
+  });
+
+  /* Chapters, rail, nav, progress */
+  var nav = document.querySelector('.nav'), bar = document.querySelector('.progress span');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('.chapter'));
+  var links = {}; document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+  var rail = document.createElement('nav'); rail.className='rail'; rail.setAttribute('aria-label','Page chapters');
+  var dots = chapters.map(function(ch,i){
+    ch.style.zIndex = i+1;
+    var a=document.createElement('a'); a.href='#'+ch.previousElementSibling.id; a.innerHTML='<span>'+ch.dataset.ch+'</span>'; a.setAttribute('aria-label', ch.dataset.ch);
+    rail.appendChild(a); return a;
+  });
+  document.body.appendChild(rail);
+  function pin(){ chapters.forEach(function(ch){ ch.style.top = Math.min(0, innerHeight - ch.offsetHeight) + 'px'; }); }
+  pin();
+  var heroImg = document.querySelector('.photo img'), cityImg = document.querySelector('.after img');
+  var lastY = scrollY, ticking = false, currentCh = -1;
+
+  function frame(){
+    ticking = false;
+    var y = scrollY, H = document.documentElement.scrollHeight - innerHeight;
+    bar.style.setProperty('--sp', H>0 ? Math.min(1, y/H) : 0);
+    if(y > 140 && y > lastY + 4) nav.classList.add('tuck'); else if(y < lastY - 4 || y < 140) nav.classList.remove('tuck');
+    lastY = y;
+    var cur = 0;
+    chapters.forEach(function(ch,i){
+      var next = chapters[i+1], c = 0;
+      if(next) c = Math.max(0, Math.min(1, (innerHeight - next.getBoundingClientRect().top) / innerHeight));
+      ch.style.setProperty('--c', c.toFixed(3));
+      if(!reduce) ch.style.transform = c > 0 ? 'scale(' + (1 - c*0.06).toFixed(4) + ')' : '';
+      if(ch.previousElementSibling.getBoundingClientRect().top <= innerHeight*0.45) cur = i;
+    });
+    if(cur !== currentCh){
+      currentCh = cur;
+      dots.forEach(function(d,i){ d.classList.toggle('on', i===cur); });
+      var id = chapters[cur].previousElementSibling.id;
+      Object.keys(links).forEach(function(k){ links[k].classList.toggle('active', k===id); });
+      var d = dots[cur]; d.classList.add('flash'); clearTimeout(d._t); d._t = setTimeout(function(){ d.classList.remove('flash'); }, 1200);
+    }
+    if(!reduce){
+      statements.forEach(function(s){
+        var r = s.el.getBoundingClientRect();
+        var p = Math.max(0, Math.min(1, (innerHeight*0.92 - r.top) / (innerHeight*0.55)));
+        var n = Math.round(p * s.words.length);
+        s.words.forEach(function(w,i){ w.classList.toggle('dim', i >= n); });
+      });
+      if(heroImg && y < innerHeight*1.2) heroImg.style.transform = 'translateY(' + (y*0.08).toFixed(1) + 'px)';
+      if(cityImg){ var r = cityImg.getBoundingClientRect(); if(r.bottom > 0 && r.top < innerHeight){ var t = (r.top + r.height/2 - innerHeight/2) / innerHeight; cityImg.style.transform = 'scale(' + (1.08 - Math.abs(t)*0.08).toFixed(3) + ') translateY(' + (t*20).toFixed(1) + 'px)'; } }
+    }
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', function(){ pin(); onScroll(); });
+  if('ResizeObserver' in window){ var ro = new ResizeObserver(function(){ pin(); onScroll(); }); chapters.forEach(function(ch){ ro.observe(ch); }); }
+  frame();
+
+  if(reduce || !('IntersectionObserver' in window)) return;
+
+  /* Unfold: stage only what starts below the fold, so the first view is complete */
+  var sel = '.field, .chapter h2, .kpis, .seg, .message, .specs div, .product .intro p, .flip, .foot, .file, .file li, .file-foot, .after .frame, .after .copy > p, .handles, .voucher';
+  var items = Array.prototype.slice.call(document.querySelectorAll(sel));
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(!e.isIntersecting) return; io.unobserve(e.target); e.target.classList.remove('pre'); e.target.classList.add('rise'); });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.05});
+  items.forEach(function(el){
+    if(el.getBoundingClientRect().top < innerHeight) return;
+    var sibs = Array.prototype.filter.call(el.parentElement.children, function(c){ return c.matches(sel); });
+    el.style.setProperty('--i', Math.max(0, sibs.indexOf(el)) % 6);
+    el.classList.add('pre'); io.observe(el);
+  });
+
+  var oo = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return; oo.unobserve(e.target);
+      e.target.querySelectorAll('.odo > span').forEach(function(col,i){
+        var d=+col.dataset.d; col.style.transition='none'; col.style.transform='translateY(-'+d+'em)'; void col.offsetHeight;
+        col.style.transition=''; col.style.transitionDelay=(i*80)+'ms'; col.style.transform='translateY(-'+(d+10)+'em)';
+      });
+    });
+  }, {threshold:.5});
+  odos.forEach(function(n){ oo.observe(n); });
+
+  /* Magnetic buttons */
+  if(window.matchMedia('(pointer: fine)').matches){
+    document.querySelectorAll('.mag').forEach(function(b){
+      b.addEventListener('pointermove', function(ev){ var r=b.getBoundingClientRect(); b.style.transform='translate('+((ev.clientX-r.left-r.width/2)*0.18).toFixed(1)+'px,'+((ev.clientY-r.top-r.height/2)*0.3).toFixed(1)+'px)'; });
+      b.addEventListener('pointerleave', function(){ b.style.transform=''; });
+    });
+  }
+})();
+</script>
+</body>
+</html>
